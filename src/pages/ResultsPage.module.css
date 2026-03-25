@@ -1,0 +1,293 @@
+.page {
+  min-height: 100vh;
+  background: #0f172a;
+  color: white;
+  padding: 30px;
+}
+
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.topLeft {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.topIcon {
+  font-size: 26px;
+}
+
+.topName {
+  font-weight: 700;
+}
+
+.topSub {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.topRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.topScore {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.btnOutline {
+  border: 1px solid #334155;
+  background: transparent;
+  color: white;
+  padding: 7px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btnOutline:hover {
+  background: #1e293b;
+}
+
+.btnPrimary {
+  background: #3b82f6;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.heroRow {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 20px;
+}
+
+.mainScore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.levelPill {
+  padding: 4px 12px;
+  border: 1px solid;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.industry {
+  color: #94a3b8;
+}
+
+.summaryCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.summaryText {
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.ci {
+  display: flex;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.statCol {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid #334155;
+}
+
+.tab {
+  padding: 8px 14px;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+}
+
+.tabActive {
+  color: white;
+  border-bottom: 2px solid #3b82f6;
+}
+
+.twoCol {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.scoreList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.miniGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.miniItem {
+  display: flex;
+  justify-content: center;
+}
+
+.strength {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.chk {
+  color: #22c55e;
+}
+
+.skillCloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.divider {
+  height: 1px;
+  background: #334155;
+  margin: 15px 0;
+}
+
+.certTitle {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.certItem {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.listCol {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.expHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.expTitle {
+  font-weight: 600;
+}
+
+.expCompany {
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.expLoc {
+  color: #64748b;
+}
+
+.expMeta {
+  text-align: right;
+}
+
+.expDates {
+  font-size: 13px;
+}
+
+.expDur {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.highlights {
+  margin-top: 10px;
+  padding-left: 18px;
+}
+
+.improvCard {
+  border-left: 4px solid;
+  padding: 12px;
+  background: #1e293b;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.improvTop {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.impact {
+  margin-left: auto;
+  font-weight: 700;
+}
+
+.improvText {
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+.priStat {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.priCount {
+  font-weight: 700;
+}
+
+.potScore {
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.potLabel {
+  text-align: center;
+  font-size: 13px;
+  color: #94a3b8;
+  margin-bottom: 10px;
+}

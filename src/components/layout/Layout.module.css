@@ -1,0 +1,140 @@
+.shell {
+  display: flex;
+  min-height: 100vh;
+  background: #0f172a;
+  color: white;
+}
+
+/* Sidebar */
+
+.sidebar {
+  width: 230px;
+  background: #020617;
+  border-right: 1px solid #1e293b;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 12px;
+  transition: width 0.25s ease;
+}
+
+.collapsed .sidebar {
+  width: 70px;
+}
+
+/* Logo */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  margin-bottom: 25px;
+}
+
+.logoMark {
+  background: #3b82f6;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.logoText {
+  font-weight: 700;
+}
+
+/* Collapse button */
+
+.collapseBtn {
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.collapseBtn:hover {
+  color: white;
+}
+
+/* Navigation */
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.navItem:hover {
+  background: #1e293b;
+  color: white;
+}
+
+.active {
+  background: #3b82f6;
+  color: white;
+}
+
+.navIcon {
+  font-size: 18px;
+}
+
+.navLabel {
+  font-weight: 500;
+}
+
+/* User footer */
+
+.userFooter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid #1e293b;
+  padding-top: 12px;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  background: #334155;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.userName {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.userRole {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+/* Main content */
+
+.main {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}

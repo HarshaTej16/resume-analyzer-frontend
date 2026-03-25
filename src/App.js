@@ -1,25 +1,70 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider, useAuth } from './context/AuthContext';
+import { AnalysisProvider } from './context/AnalysisContext';
+import Layout from './components/layout/Layout';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import LandingPage   from './pages/LandingPage';
+import LoginPage     from './pages/LoginPage';
+import UploadPage    from './pages/UploadPage';
+import AnalyzingPage from './pages/AnalyzingPage';
+import ResultsPage   from './pages/ResultsPage';
+import DashboardPage from './pages/DashboardPage';
+import JobMatchPage  from './pages/JobMatchPage';
+
+import './index.css';
+
+function ProtectedRoute({ children }) {
+  const { isAuthenticated, loading } = useAuth();
+  if (loading) {
+    return (
+      <div style={{
+        minHeight: '100vh',
+        background: 'var(--bg)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: 'var(--text-mid)',
+        fontFamily: 'var(--font-body)'
+      }}>
+        Loading…
+      </div>
+    );
+  }
+  if (!isAuthenticated) return <Navigate to="/login" replace />;
+  return children;
 }
 
-export default App;
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AuthProvider>
+        <AnalysisProvider>
+          <Routes>
+            {/* Public routes */}
+            <Route path="/"      element={<LandingPage />} />
+            <Route path="/login" element={<LoginPage />} />
+
+            {/* Protected routes inside sidebar layout */}
+            <Route
+              element={
+                <ProtectedRoute>
+                  <Layout />
+                </ProtectedRoute>
+              }
+            >
+              <Route path="/upload"    element={<UploadPage />} />
+              <Route path="/analyzing" element={<AnalyzingPage />} />
+              <Route path="/results"   element={<ResultsPage />} />
+              <Route path="/dashboard" element={<DashboardPage />} />
+              <Route path="/job-match" element={<JobMatchPage />} />
+            </Route>
+
+            {/* Fallback */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </AnalysisProvider>
+      </AuthProvider>
+    </BrowserRouter>
+  );
+}
