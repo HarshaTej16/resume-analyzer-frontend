@@ -29,7 +29,13 @@ export function DashboardPage() {
   );
 
   const lc = LEVEL_COLOR[analysis.readinessLevel] || 'var(--accent)';
-
+  const s = analysis.scores || {
+  overall: analysis.overallScore,
+  skills: analysis.skillsScore,
+  experience: analysis.experienceScore,
+  education: analysis.educationScore,
+  atsCompatibility: analysis.atsCompatibilityScore,
+};
   return (
     <div className={styles.page}>
       <div className={styles.header}>
@@ -48,7 +54,7 @@ export function DashboardPage() {
               <button className={styles.btnView} onClick={() => navigate('/results')}>View Full Report →</button>
             </div>
             <div className={styles.curBody}>
-              <ScoreRing score={analysis.scores?.overall||0} size={140} label="OVERALL" color={lc} thickness={10} />
+              <ScoreRing score={s.overall||0} size={140} label="OVERALL" color={lc} thickness={10} />
               <div className={styles.curScores}>
                 {SCORE_KEYS.map(({key,label,color},i) => <div key={key} style={{marginBottom:12}}><ProgressBar label={label} value={analysis.scores?.[key]||0} color={color} delay={i*80} /></div>)}
               </div>
@@ -77,7 +83,7 @@ export function DashboardPage() {
 
         <div className={styles.sideCol}>
           <div className={styles.statsGrid}>
-            <StatCard icon="⚡" label="Skills"      value={analysis.skills?.length||0}      color="var(--accent)" />
+            <StatCard icon="⚡" label="Skills"      value={s[key]||0}      color="var(--accent)" />
             <StatCard icon="💼" label="Roles"        value={analysis.experience?.length||0}  color="var(--emerald)" />
             <StatCard icon="🎓" label="Degrees"      value={analysis.education?.length||0}   color="var(--amber)" />
             <StatCard icon="💡" label="Action Items" value={analysis.improvements?.length||0} color="var(--rose)" />
@@ -97,7 +103,7 @@ export function DashboardPage() {
               {history.slice(0,5).map((h,i) => (
                 <div key={i} className={styles.histItem}>
                   <div><div className={styles.histName}>{h.candidateName||'Resume'}</div><div className={styles.histDate}>{h.date?.toLocaleDateString()}</div></div>
-                  <div style={{ fontFamily:'var(--font-display)', fontSize:20, fontWeight:800, color: LEVEL_COLOR[h.readinessLevel]||'var(--accent)' }}>{h.scores?.overall}</div>
+                  <div style={{ fontFamily:'var(--font-display)', fontSize:20, fontWeight:800, color: LEVEL_COLOR[h.readinessLevel]||'var(--accent)' }}>{h.scores?.overall ?? h.overallScore}</div>
                 </div>
               ))}
             </Card>
