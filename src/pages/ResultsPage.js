@@ -178,7 +178,7 @@ export default function ResultsPage() {
                   <div className={styles.expMeta}>
                     <div className={styles.expDates}>{exp.startDate} – {exp.endDate}</div>
                     <div className={styles.expDur}>{exp.durationMonths} months</div>
-                    {exp.isCurrent && <Badge label="Current" color="var(--emerald)" />}
+                    {(exp.isCurrent || exp.current) && <Badge label="Current" color="var(--emerald)" />}
                   </div>
                 </div>
                 {exp.highlights?.length > 0 && (
