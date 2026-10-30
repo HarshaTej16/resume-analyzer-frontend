@@ -56,7 +56,7 @@ export function DashboardPage() {
             <div className={styles.curBody}>
               <ScoreRing score={s.overall||0} size={140} label="OVERALL" color={lc} thickness={10} />
               <div className={styles.curScores}>
-                {SCORE_KEYS.map(({key,label,color},i) => <div key={key} style={{marginBottom:12}}><ProgressBar label={label} value={analysis.scores?.[key]||0} color={color} delay={i*80} /></div>)}
+                {SCORE_KEYS.map(({key,label,color},i) => <div key={key} style={{marginBottom:12}}><ProgressBar label={label} value={s[key]||0} color={color} delay={i*80} /></div>)}
               </div>
             </div>
             <div className={styles.badges}>
@@ -83,7 +83,7 @@ export function DashboardPage() {
 
         <div className={styles.sideCol}>
           <div className={styles.statsGrid}>
-            <StatCard icon="⚡" label="Skills"      value={s[key]||0}      color="var(--accent)" />
+            <StatCard icon="⚡" label="Skills"      value={analysis.skills?.length||0}      color="var(--accent)" />
             <StatCard icon="💼" label="Roles"        value={analysis.experience?.length||0}  color="var(--emerald)" />
             <StatCard icon="🎓" label="Degrees"      value={analysis.education?.length||0}   color="var(--amber)" />
             <StatCard icon="💡" label="Action Items" value={analysis.improvements?.length||0} color="var(--rose)" />
