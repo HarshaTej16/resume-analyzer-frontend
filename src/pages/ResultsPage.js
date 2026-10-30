@@ -30,7 +30,15 @@ export default function ResultsPage() {
     </div>
   );
 
-  const s    = analysis.scores || {};
+ const s = analysis.scores || {
+  overall: analysis.overallScore,
+  skills: analysis.skillsScore,
+  experience: analysis.experienceScore,
+  education: analysis.educationScore,
+  formatting: analysis.formattingScore,
+  keywords: analysis.keywordsScore,
+  atsCompatibility: analysis.atsCompatibilityScore,
+};
   const level = analysis.readinessLevel || 'ENTRY';
   const lc    = LEVEL_COLOR[level] || 'var(--accent)';
 
